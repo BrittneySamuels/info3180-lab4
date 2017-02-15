@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 class="flielisting-header">A List of All The Files Uploaded</h1>
+<ol>
+	{% for items in filelist %}
+		{% if "jpg" in items or "png" in items %}
+  		<li><img src= "{{url_for ('static', filename = "uploads/" + items)}}" style = "width:50px; hieght:50px;"></li>
+  		{% else %}
+  		<li>{{ items }}</li>
+  		{% endif %}
+  	{% endfor %}
+</ol>
+
+{% endblock %}
